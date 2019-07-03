@@ -27,81 +27,29 @@ echo ======================================================\n
 echo Running all tests..."\n\n
 
 
-test "PINA: 0x0E => PORTC: 8, state = PLUS"
-set state = START
-setPINA 0x0E
+test “PINA: 0x01,=> PORTC: 0x60
+setPINA 0x01
 continue 2
-expectPORTC 0x08
-expect state PLUS
-check results
+expectPORTC 0x60
+checkResult
 
-test "PINA: 0x0E => PORTC: 9, state = PLUS"
-set state = START
-setPINA 0x0E
+test “PINA: 0x0A,=> PORTC: 0x3C
+setPINA 0x0A
 continue 2
-expectPORTC 0x09
-expect state PLUS
-check results
+expectPORTC 0x3C
+checkResult
 
-test "PINA: 0x0E => PORTC: 9, state = PLUS (PAST MAX VALUE)"
-set state = START
-setPINA 0x0E
+test “PINA: 0x07,=> PORTC: 0x3C
+setPINA 0x07
 continue 2
-expectPORTC 0x09
-expect state PLUS
-check results
+expectPORTC 0x3C
+checkResult
 
-test "PINA: 0x0E => PORTC: 8, state = MINUS"
-set state = START
+test “PINA: 0x0D,=> PORTC: 0x3F
 setPINA 0x0D
 continue 2
-expectPORTC 0x08
-expect state MINUS
-check results
-
-test "PINA: 0x0E => PORTC: 7, state = MINUS"
-set state = START
-setPINA 0x0D
-continue 2
-expectPORTC 0x07
-expect state MINUS
-check results
-
-test "PINA: 0x0E => PORTC: 6, state = MINUS"
-set state = START
-setPINA 0x0D
-continue 2
-expectPORTC 0x06
-expect state MINUS
-check results
-
-test "PINA: 0x0E => PORTC: 7, state = PLUS"
-set state = START
-setPINA 0x0E
-continue 2
-expectPORTC 0x07
-expect state PLUS
-check results
-
-test "PINA: 0x0E => PORTC: 7, state = RESET"
-set state = START
-setPINA 0x00
-continue 2
-expectPORTC 0x00
-expect state RESET
-check results
-
-test "PINA: 0x0E => PORTC: 0, state = MINUS (PAST MIN VALUE)"
-set state = START
-setPINA 0x0D
-continue 2
-expectPORTC 0x00
-expect state MINUS
-check results
-
-
-
-
+expectPORTC 0x3F
+checkResult
 
 
 
